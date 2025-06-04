@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lin Shen-Lung</title>
+    <link rel="stylesheet" href="scss/all.css">
+
+
+<!--壞掉就要刪以下↓-->
+
+<style>
+  /* 容器佔滿寬度 */
+  .out-of-box {
+    display: block;
+    width: 100%;
+  }
+
+  /* 控制圖片 + 說明一起靠右浮動並推出去 */
+  .float-figure {
+    float: right;
+    margin-left: 24px;
+    margin-right: -400px; /* ✅ 推出右邊界的距離，可自由調整 */
+    max-width: 50%;
+  }
+
+  /* 圖片本身寬度滿 figure，取消浮動，避免破排 */
+  .float-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* 說明文字與圖片對齊，緊貼底下 */
+  .image-caption {
+    font-size: 14px;
+    color: #555;
+    text-align: right;
+    margin-top: 4px;
+    font-style: italic;
+  }
+
+  /* ✅ 手機響應式處理：取消浮動，置中排版 */
+  @media screen and (max-width: 768px) {
+    .float-figure {
+      float: none;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    .image-caption {
+      text-align: center;
+    }
+  }
+</style>
+
+
+
+<!--壞掉就要刪以上↑-->
+
+</head>
+
+<body>
+    <div class="header">
+        <ul class="header_list">
+            <li><a href="index.html">Self Introduction</a></li>
+            <li><a href="experience.html">Personal Experience</a></li>
+            <li><a href="model.html">Research</a></li>
+        </ul>
+    </div>
+    <div class="banner">
+        <img class="banner_img" src="./img/IndexBannerPhoto.png" alt="research_draft">
+        <div class="banner_content">
+            <h3>Welcome to Sheng-Lung's personal website</h3>
+        </div>
+    </div>
+    <div class="main">
+        <div class="content">
+            <div class="Intro gap24">
+                <h3>Introduction</h3>
+                <p>Hello! I'm Sheng-Lung, Lin (林 聖龍) — a geophysicist passionate about seismic signal analysis and earthquake precursors, hoping to design effective early warning systems so that one day, people may live free from the fear of earthquakes and in a safer world.</p>
+            </div>
+            <div class="Content1 gap24">
+                <!--<img src="./img/output (1)_0.png" alt="content1_related_image">-->
+                <h3>🧑‍💼 About Me</h3>
+                <ul class="ContentUnit gap24">
+                    <li class="gap12 ">
+                        <h4>Reflecting on the past</h4>
+<div class="out-of-box">
+  <figure class="float-figure">
+                        <img src="./img/3D_水平_1.gif" alt="2">
+<br>
+                        <img src="./img/3D垂直地震頗面.gif" alt="3">
+                        <figcaption class="image-caption">Animations 1 & 2 – Pseudo-3D Seismic from 2D Data</figcaption>
+    <!--<img src="./img/火山爆發_1_short.gif" alt="1_CNN_CWT_architecture_0.gif">
+    <figcaption class="image-caption">Fig.1 - 2021 Fagradalsfjall eruption</figcaption>-->
+  </figure>
+
+                        <p>
+I earned my master’s degree from National Taiwan University, where I specialized in multi-channel seismic reflection surveys. My thesis, “Pseudo-3D Seismic Data Processing and Application in the Southern Okinawa Trough,” involved constructing pseudo-3D seismic images using 2D seismic reflection data to study crustal structures in the region.
+
+Following that, I pursued doctoral research at the University of Iceland, where I focused on: 
+
+extracting velocity-based seismic signals, automatically identifying strong ground motion using machine learning.
+</div>
+                            </p>
+<li class="gap12">
+  <div class="out-of-box">
+    <!-- ✅ 圖片 + 圖說浮在右邊 -->
+    <figure class="float-figure">
+      <img src="./img/火山爆發_1_short.gif" alt="1_CNN_CWT_architecture_0.gif">
+      <figcaption class="image-caption">Fig 1 (GIF): 2021 Fagradalsfjall eruption in Iceland.</figcaption>
+    </figure>
+
+    <!-- ✅ Currently 區塊 -->
+    <h4>Currently</h4>
+    <p>
+      My research interests revolve around Geophysics, seismic wave analysis, and deep learning models. I am especially interested in detecting earthquake precursors and potential early warning signals in pre-mainshock seismic waveform data.
+    </p>
+
+    <!-- ✅ Future Plan 區塊：照原格式保留 -->
+<br>
+    <h4>Future Plan</h4>
+    <p>
+      I am currently actively seeking Ph.D. opportunities, with the hope of successfully completing a doctoral degree and contributing to the advancement of earthquake early warning systems.
+    </p>
+
+<br>
+    <h4>💡 Personal Strengths</h4>
+    <p>
+•  International Research Experience: Ph.D. trained (University of Iceland, Iceland); M.S. (NTU, Taiwan)<!--: Doctoral training at the University of Iceland, NTU Master’s graduate, and academic ties with the University of Tokyo.-->
+
+•  Multilingual: 中文 / English / 日本語<!--: Native Mandarin, fluent in English, JLPT N2 in Japanese; continuously learning for international collaboration.--><!--•  Adaptable and Cooperative: Open-minded, quick to align with research goals.-->
+
+•  Strong Execution: Passionate about coding, data analysis, and hands-on implementation with open-source tools.<!--theory and practice., skilled in coding, data analysis, and open-source tool development.-->
+
+•  Purpose-Driven: Committed to developing effective earthquake early warning systems to help create a safer world.
+
+    </p>
+
+  </div>
+</li>
+
+                </ul>
+                <div class="subConclusion">
+                    <p>Open to any geophysics-related research I can reasonably handle—enthusiastic and ready to contribute. Feel free to contact me. Thanks for visiting!</p>
+                </div>
+            </div>
+            <div class="button">
+                <a href="#" class="invisible">上一頁</a>
+                <a href="experience.html">下一頁</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="contact">
+        <h3></h3>
+        <h2 class="contact-title">Connecting Information: </h2>
+        <!--<h1 class="email">r05241314@ntu.edu.tw</h1>-->
+        <h1 style="position: relative; right: 15%; top: 3vh;">r05241314@ntu.edu.tw</h1>
+        <ul class="LinkList">
+        </ul>
+    </div>
+    <div class="footer">
+        <p>© 2025 Shen-Lung Lin. All rights reserved.</p>
+    </div>
+
+</body>
+
+</html>
