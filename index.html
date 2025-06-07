@@ -11,19 +11,25 @@
 <!--壞掉就要刪以下↓-->
 
 <style>
+.banner_img {
+  display: inline-block;
+  width: 35%;
+}
+
+  .content {
+  max-width: 800px;
+  transform: translateX(0px);}
+
+.content p {
+  font-size: 21px;}
+
+
   /* 容器佔滿寬度 */
   .out-of-box {
     display: block;
     width: 100%;
   }
 
-  /* 控制圖片 + 說明一起靠右浮動並推出去 */
-  .float-figure {
-    float: right;
-    margin-left: 24px;
-    margin-right: -400px; /* ✅ 推出右邊界的距離，可自由調整 */
-    max-width: 50%;
-  }
 
   /* 圖片本身寬度滿 figure，取消浮動，避免破排 */
   .float-figure img {
@@ -53,20 +59,93 @@
       text-align: center;
     }
   }
+/* ...（前面 reset.css 與全站設定原樣保留）... */
+
+/* 內容主要區塊可水平滑動 */
+.scroll-x-wrapper {
+  width: 100vw;
+  overflow-x: auto;
+  /* 隱藏外層橫向捲動導致的 vertical bar */
+  box-sizing: border-box;
+  padding-bottom: 12px;
+}
+
+/* 主要雙欄區塊：左為文字，右為圖片 */
+.flex-about-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 32px;
+  min-width: 900px; /* 預設比 .content 還寬，足以觸發 scroll */
+  width: max-content; /* 內容多寬就多寬，方便 scroll */
+}
+
+/* 文字區塊 */
+.flex-about-text {
+  flex: 1 1 0;
+  min-width: 300px;
+  max-width: 540px;
+}
+
+/* 圖片區塊 */
+.flex-about-image {
+  width: 320px;
+  min-width: 200px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.flex-about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 4px;
+}
+.flex-about-image .image-caption {
+  font-size: 14px;
+  color: #555;
+  text-align: right;
+  font-style: italic;
+  width: 100%;
+}
+
+/* 響應式：手機時自動上下排列 */
+@media (max-width: 900px) {
+  .flex-about-row {
+  flex-wrap: wrap;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+    width: 100%;
+  }
+  .flex-about-image,
+  .flex-about-text {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .flex-about-image .image-caption {
+    text-align: center;
+  }
+}
+
 </style>
-
-
 
 <!--壞掉就要刪以上↑-->
 
+
 </head>
+
+<div class="scroll-x-wrapper">
 
 <body>
     <div class="header">
         <ul class="header_list">
-            <li><a href="index.html">Self Introduction</a></li>
-            <li><a href="experience.html">Personal Experience</a></li>
-            <li><a href="model.html">Research</a></li>
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="model.html">Insights</a></li>
         </ul>
     </div>
     <div class="banner">
@@ -81,75 +160,52 @@
                 <h3>Introduction</h3>
                 <p>Hello! I'm Sheng-Lung, Lin (林 聖龍) — a geophysicist passionate about seismic signal analysis and earthquake precursors, hoping to design effective early warning systems so that one day, people may live free from the fear of earthquakes and in a safer world.</p>
             </div>
-            <div class="Content1 gap24">
-                <!--<img src="./img/output (1)_0.png" alt="content1_related_image">-->
-                <h3>🧑‍💼 About Me</h3>
-                <ul class="ContentUnit gap24">
-                    <li class="gap12 ">
-                        <h4>Reflecting on the past</h4>
-<div class="out-of-box">
-  <figure class="float-figure">
-                        <img src="./img/3D_水平_1.gif" alt="2">
+<div class="Content1 gap24">
+  <h3>🧑‍💼 About Me</h3>
+  <div class="scroll-x-wrapper">
+    <div class="flex-about-row">
+      <!-- 左欄：文字 -->
+      <div class="flex-about-text">
+        <h4>Reflecting on the past</h4>
+        <p>
+          I earned my master’s degree from National Taiwan University, where I specialized in multi-channel seismic reflection surveys. My thesis, “Pseudo-3D Seismic Data Processing and Application in the Southern Okinawa Trough,” involved constructing pseudo-3D seismic images using 2D seismic reflection data to study crustal structures in the region.
+        </p>
+        <p>
+          Following that, I pursued doctoral research at the University of Iceland, where I focused on extracting velocity-based seismic signals and automatically identifying strong ground motion using machine learning.
+        </p>
 <br>
-                        <img src="./img/3D垂直地震頗面.gif" alt="3">
-                        <figcaption class="image-caption">Animations 1 & 2 – Pseudo-3D Seismic from 2D Data</figcaption>
-    <!--<img src="./img/火山爆發_1_short.gif" alt="1_CNN_CWT_architecture_0.gif">
-    <figcaption class="image-caption">Fig.1 - 2021 Fagradalsfjall eruption</figcaption>-->
-  </figure>
+        <h4>Future Plan</h4>
+        <!--<h4>Currently</h4>-->
+        <p>
+          My research interests revolve around Geophysics, seismic wave analysis, and deep learning models. I am especially interested in detecting earthquake precursors and potential early warning signals in pre-mainshock seismic waveform data.
 
-                        <p>
-I earned my master’s degree from National Taiwan University, where I specialized in multi-channel seismic reflection surveys. My thesis, “Pseudo-3D Seismic Data Processing and Application in the Southern Okinawa Trough,” involved constructing pseudo-3D seismic images using 2D seismic reflection data to study crustal structures in the region.
-
-Following that, I pursued doctoral research at the University of Iceland, where I focused on: 
-
-extracting velocity-based seismic signals, automatically identifying strong ground motion using machine learning.
-</div>
-                            </p>
-<li class="gap12">
-  <div class="out-of-box">
-    <!-- ✅ 圖片 + 圖說浮在右邊 -->
-    <figure class="float-figure">
-      <img src="./img/火山爆發_1_short.gif" alt="1_CNN_CWT_architecture_0.gif">
-      <figcaption class="image-caption">Fig 1 (GIF): 2021 Fagradalsfjall eruption in Iceland.</figcaption>
-    </figure>
-
-    <!-- ✅ Currently 區塊 -->
-    <h4>Currently</h4>
-    <p>
-      My research interests revolve around Geophysics, seismic wave analysis, and deep learning models. I am especially interested in detecting earthquake precursors and potential early warning signals in pre-mainshock seismic waveform data.
-    </p>
-
-    <!-- ✅ Future Plan 區塊：照原格式保留 -->
+          I am currently actively seeking Ph.D. opportunities, with the hope of successfully completing a doctoral degree and contributing to the advancement of earthquake early warning systems.
 <br>
-    <h4>Future Plan</h4>
-    <p>
-      I am currently actively seeking Ph.D. opportunities, with the hope of successfully completing a doctoral degree and contributing to the advancement of earthquake early warning systems.
-    </p>
-
-<br>
-    <h4>💡 Personal Strengths</h4>
-    <p>
-•  International Research Experience: Ph.D. trained (University of Iceland, Iceland); M.S. (NTU, Taiwan)<!--: Doctoral training at the University of Iceland, NTU Master’s graduate, and academic ties with the University of Tokyo.-->
-
-•  Multilingual: 中文 / English / 日本語<!--: Native Mandarin, fluent in English, JLPT N2 in Japanese; continuously learning for international collaboration.--><!--•  Adaptable and Cooperative: Open-minded, quick to align with research goals.-->
-
-•  Strong Execution: Passionate about coding, data analysis, and hands-on implementation with open-source tools.<!--theory and practice., skilled in coding, data analysis, and open-source tool development.-->
-
-•  Purpose-Driven: Committed to developing effective earthquake early warning systems to help create a safer world.
-
-    </p>
-
+        </p>
+        <h4>💡 Personal Strengths</h4>
+        <p>
+          •  International Experience: Ph.D. trained (University of Iceland, Iceland); M.S. (NTU, Taiwan)<br>
+          •  Multilingual: 中文 / English / 日本語<br>
+          •  Strong Execution: Passionate about coding and data analysis.<br>
+          •  Purpose-Driven: Committed to improving earthquake early warning for a safer world.
+        </p>
+      </div>
+      <!-- 右欄：圖片 -->
+      <div class="flex-about-image">
+        <img src="./img/3D_水平_1.gif" alt="2">
+        <img src="./img/3D垂直地震頗面.gif" alt="3">
+        <div class="image-caption">Animations 1 & 2 – Pseudo-3D Seismic from 2D Data</div>
+        <img src="./img/火山爆發_1_short.gif" alt="Fagradalsfjall">
+        <div class="image-caption">Fig 1 (GIF): 2021 Fagradalsfjall eruption in Iceland.</div>
+      </div>
+    </div>
   </div>
-</li>
-
-                </ul>
-                <div class="subConclusion">
-                    <p>Open to any geophysics-related research I can reasonably handle—enthusiastic and ready to contribute. Feel free to contact me. Thanks for visiting!</p>
-                </div>
-            </div>
-            <div class="button">
-                <a href="#" class="invisible">上一頁</a>
-                <a href="experience.html">下一頁</a>
+  <div class="subConclusion">
+    <p>Open to any geophysics-related research I can handle—enthusiastic and ready to contribute. Feel free to contact me. Thanks for visiting!</p>
+  </div>
+</div>            <div class="button">
+                <a href="#" class="invisible">Previous Page</a>
+                <a href="experience.html">Next Page</a>
             </div>
 
         </div>
@@ -158,7 +214,7 @@ extracting velocity-based seismic signals, automatically identifying strong grou
         <h3></h3>
         <h2 class="contact-title">Connecting Information: </h2>
         <!--<h1 class="email">r05241314@ntu.edu.tw</h1>-->
-        <h1 style="position: relative; right: 15%; top: 3vh;">r05241314@ntu.edu.tw</h1>
+        <h1 style="position: relative; right: 13%; top: 3vh;">r05241314@ntu.edu.tw</h1>
         <ul class="LinkList">
         </ul>
     </div>
@@ -167,5 +223,7 @@ extracting velocity-based seismic signals, automatically identifying strong grou
     </div>
 
 </body>
+
+</div>
 
 </html>
