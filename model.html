@@ -1,1 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lin Shen-Lung</title>
+    <link rel="stylesheet" href="scss/all.css">
 
+    <!-- MathJax 支援 -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+  .content {
+  max-width: 1400px;}
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        box-sizing: border-box;
+        background: #FBFBFB;
+        font-family: Noto Sans TC, Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .main, .content {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;
+      }
+      .scroll-x-wrapper {
+        overflow-x: auto;
+        width: 100%;
+        box-sizing: border-box;
+        /* 高度自動延展，或你也可設定 min-height */
+        padding-bottom: 32px; /* 讓scroll-bar不會壓住內容 */
+      }
+      .scroll-x-wrapper-inner {
+        display: block;
+        width: max-content;   /* 內容多寬就多寬，橫向出現scroll-bar */
+        min-width: 900px;     /* 根據需求可調 */
+        max-width: none;
+      }
+      .flex-about-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        margin-bottom: 48px;
+      }
+      .flex-about-text {
+        flex: 0 1 750px;
+        min-width: 340px;
+  max-width: none;      /* ← 解除最大寬度限制！讓內容寬 */
+        margin-right: 40px;
+      }
+
+      .flex-about-image {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 16px;
+        min-width: 220px;
+      }
+      .flex-about-image img {
+  width: 550px;         /* ← 圖片也放大，不會侷限 */
+  max-width: none;      /* ← 解除最大寬度限制！ */
+        height: auto;
+        display: block;
+        margin-left: auto;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px #0001;
+        background: #fff;
+      }
+      .image-caption {
+        text-align: right;
+        font-size: 0.9em;
+        color: #888;
+        margin-bottom: 12px;
+        margin-top: 2px;
+      }
+      @media (max-width: 1100px) {
+        .scroll-x-wrapper-inner {
+          width: 100% !important;
+          min-width: 0 !important;
+        }
+        .flex-about-row {
+          flex-direction: column;
+        }
+        .flex-about-image img {
+          width: 100%;
+          max-width: 98vw;
+        }
+        .flex-about-image, .flex-about-text {
+          align-items: center;
+          margin-right: 0;
+          max-width: 100%;
+        }
+        .image-caption {
+          text-align: center;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <ul class="header_list">
+            <li><a href="index.html">Introduction</a></li>
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="model.html">Insights</a></li>
+        </ul>
+    </div>
+
+    <div class="banner">
+        <img class="banner_img" src="./img/hilbert_with_phase_arrow.gif" alt="動態圖示">
+        <div class="banner_content">
+            <h3>My Research Journey</h3>
+        </div>
+    </div>
+
+    <div class="main">
+      <div class="content">
+
+        <!-- 只要一個 scroll-x-wrapper，把多個區塊都包起來 -->
+        <div class="scroll-x-wrapper">
+          <div class="scroll-x-wrapper-inner">
+            <!-- ====== Fourier Transform 區塊 ====== -->
+            <div class="flex-about-row">
+              <!-- 左欄：文字 -->
+              <div class="flex-about-text">
+                <h3>Fourier Transform</h3>
+<br>
+                <ul class="ContentUnit gap24">
+                  <li class="gap12 ">
+                    <h4>Discrete and Short Time Fourier Transform, DFT & STFT</h4>
+                  </li>
+                </ul>
+                <p>
+                  <b>Discrete Fourier Transform（DFT）</b>
+                  $$
+                  X_k = \sum_{n=0}^{N-1} x_n \cdot e^{-i 2\pi k n / N}
+                  $$
+                </p>
+                <p>
+                  <b>Discrete Short-Time Fourier Transform（STFT）</b>
+                  $$
+                  X_{m,k} = \sum_{n=0}^{N-1} x[n] \cdot w[n - m] \cdot e^{-i 2\pi k n / N}
+                  $$
+                </p>
+                <p>
+                  The lowercase n denotes the index of a data point in the time domain when the time axis is displayed as the x-axis. Given that the total number of data points is N, n represents the position of each sampled point along the time axis, where n = 0, 1, 2, ..., N−1. In other words, n is the time-domain index.<br><br>
+                  The lowercase k denotes the index in the frequency domain when the frequency axis is displayed as the x-axis. It corresponds to the position of each frequency component, where k = 0, 1, 2, ..., N−1. In other words, k is the frequency-domain index.<br><br>
+                  X[k] represents the magnitude (or value) of the signal at the k-th frequency component after transforming the entire signal into the frequency domain. In other words, it is the value at the k-th tick mark on the x-axis. For example, when located at the 11th tick mark, k equals 11. The interval between each tick mark is given by: \( \dfrac{f_s}{N} \)<br><br>
+                  The actual frequency corresponding to the k-th frequency component is:
+                </p>
+                <p>
+                  $$
+                  f_k = k \cdot \frac{f_s}{N}
+                  $$
+                </p>
+                <p>
+                  These frequencies start from 0 Hz and increase by \( \dfrac{f_s}{N} \) for each x-axis tick, up to the Nyquist frequency \( \dfrac{f_s}{2} \) <br><br>
+                  For example, suppose there are \( 500 \) data points and the sampling frequency  \( f_s = 10\,\mathrm{Hz} \) . In the frequency domain, the frequency at the 11th x-axis tick （\( k = 11 \)  ） is:
+                </p>
+                <p>
+                  $$
+                  f_k = 11 \times \frac{10}{500} = 0.22\,\mathrm{Hz}
+                  $$
+                </p>
+<div class="subConclusion">
+<li>
+Fourier Transform: Computes the inner product between the signal and sine waves of different frequencies from 0 to \( \dfrac{f_s}{2} \)  , revealing the signal’s frequency components.
+</li>
+</div>
+              </div>
+              <!-- 右欄：圖片區 -->
+              <div class="flex-about-image">
+                <img src="./img/FFT_sin(fx2xpixtau)_demo.gif" alt="2">
+                <div class="image-caption">Animation 1 – Fast Fourier Transform</div>
+                <img src="./img/STFT_demo.gif" alt="3">
+                <div class="image-caption">Animation 2 – Short Time Fourier Transform</div>
+                <img src="./img/STFT.png" alt="2">
+                <div class="image-caption">STFT Spectrogram based on the same dataset as the animation</div>
+              </div>
+            </div>
+
+            <!-- ====== Wavelet Transform 區塊 ====== -->
+            <div class="flex-about-row">
+              <!-- 左欄：文字 -->
+              <div class="flex-about-text">
+                <h3>Wavelet Transform</h3>
+<br>
+                <ul class="ContentUnit gap24">
+                  <li class="gap12 ">
+                    <h4>Wavelet Transform and Continuous Wavelet Transform, CWT</h4>
+                  </li>
+                </ul>
+                <p>
+                  The wavelet transform at a given scale 𝑎 and shift 𝑏 is computed as:<br>
+                  $$
+                  \mathrm{WT}_x(a, b) = \sum_{n=0}^{N-1} x[n] \cdot \psi_{a, b}^*[n]
+                  $$
+                  $$
+                  \psi_{a, b}[n] = \frac{1}{\sqrt{|a|}}\, \psi\left( \frac{n-b}{a} \right)
+                  $$
+                  The result \( \mathrm{WT}_x(a, b)\) indicates how well the wavelet at a specific scale and position matches the signal. By varying 𝑎 and 𝑏, the wavelet transform provides a time–frequency representation of the signal’s energy distribution.
+                </p>
+                <p>
+                  The lowercase 𝑎 denotes the scale parameter in the wavelet transform. It determines the width of the wavelet: larger 𝑎 values correspond to wider (lower-frequency) wavelets, while smaller 𝑎 values correspond to narrower (higher-frequency) wavelets. In other words, 𝑎 controls the frequency resolution of the analysis.<br><br>
+                  The lowercase 𝑏 denotes the shift parameter (or translation) in the wavelet transform. It determines the position of the wavelet along the time axis, allowing the wavelet to slide across the entire signal to analyze localized features. In other words, 𝑏 specifies the time location at which the signal is being analyzed.<br><br>
+                  The symbol 𝜓 refers to the mother wavelet function. It serves as the prototype for generating all wavelet functions used in the analysis. By scaling (via 𝑎) and shifting (via 𝑏) the mother wavelet, a family of wavelets is created to match different patterns in the signal.<br><br>
+                  The symbol 𝜓∗ denotes the complex conjugate of the mother wavelet. When the mother wavelet is a complex function, its complex conjugate 𝜓∗ is used in the computation to ensure correct analysis of both amplitude and phase information. If the mother wavelet is real, the conjugate has no effect and can be omitted.<br><br>
+                  Here, \( \psi_{a, b}[n]\) represents the mother wavelet function that has been scaled by 𝑎 and shifted by 𝑏, and \( x[n]\) is the original signal.
+                </p>
+                <p>
+                  <b>Wavelet Transform:</b> Computes the inner product of the signal with a mother wavelet at different scale (𝑎) and shifts (𝑏) to reveal time–frequency energy distribution
+                </p>
+<br>
+                <h4>Continuous Wavelet Transform, CWT</h4>
+                <p>
+                  CWT means applying the wavelet transform to data, where the scale (𝑎) can vary continuously (e.g., 𝑎 = 1 , 1.1 , 1.2 , ...) and the shift (𝑏) can take small steps across the signal. This allows the original time–amplitude signal to be converted into a scalogram—a flexible time–frequency representation—showing energy at different scales.
+                </p>
+<br>
+                <div class="subConclusion" style="margin-bottom: 0;">
+                  Adaptive Time–Frequency Resolution by Wavelet Transform:<br>
+                  As scale ↓, frequency resolution ↓, time resolution ↑.<br>
+                  As scale ↑, frequency resolution ↑, time resolution ↓.
+                </div>
+              </div>
+              <!-- 右欄：圖片區 -->
+              <div class="flex-about-image">
+                <img src="./img/CWT_cmor1.5-1.0.gif" alt="3">
+                <div class="image-caption">Complex Morlet Wavelet (cmor1.5-1.0), CWT</div>
+                <img src="./img/CWT_demo.gif" alt="2">
+                <div class="image-caption">Fourth-Order Derivative of Gaussian Wavelet (gaus4), CWT</div>
+                <img src="./img/CWT_scalogram.png" alt="2">
+                <div class="image-caption">CWT scalogram based on the same dataset as the animation</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="button">
+            <a href="experience.html">Previous Page</a>
+            <a href="#" class="invisible"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+        <h3></h3>
+        <h2 class="contact-title">Connecting Information: </h2>
+        <!--<h1 class="email">r05241314@ntu.edu.tw</h1>-->
+        <h1 style="position: relative; right: 14%; top: 3vh;">r05241314@ntu.edu.tw</h1>
+       <ul class="LinkList">
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Shen-Lung Lin. All rights reserved.</p>
+    </div>
+
+</body>
+</html>
