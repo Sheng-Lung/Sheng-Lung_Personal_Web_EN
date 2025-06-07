@@ -141,6 +141,12 @@ a {
   box-sizing: border-box;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .header,
 .banner,
 .main,
@@ -234,6 +240,12 @@ a {
   line-height: 150%;
 }
 
+.banner_content h6 {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 150%;
+}
+
 @media (max-width: 760px) {
   .header_list {
     flex-direction: column;
@@ -299,7 +311,7 @@ a {
   max-width: 636px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 auto;              /*先讓我註記一下。聖龍: margin: 上 右 下 左;  transform: translateX(-80px);  往左偏移 40px */
   gap: 48px;
 }
 .content ol {
@@ -313,9 +325,10 @@ a {
 }
 .content h4 {
   color: #000000;
-  font-size: 20px;
+  font-size: 24px;
 }
 .content p {
+  font-size: 16px;
   font-weight: 500;
   white-space: pre-line;
   text-align: justify;
@@ -363,7 +376,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60px;
+  height: 75px;
   background: #EDEDED;
   border-radius: 24px;
   text-align: center;
@@ -437,3 +450,11 @@ a {
   text-align: center;
   padding: 24px 0px;
 }/*# sourceMappingURL=all.css.map */
+
+
+.scroll-x-img-wrapper {
+  overflow-x: auto;
+  width: 100vw;
+  /* 加這行避免 scroll bar 出現在全畫面最下方 */
+  margin-bottom: 24px;
+}
